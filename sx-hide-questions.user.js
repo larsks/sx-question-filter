@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hide closed and/or downvoted questions
 // @namespace    http://oddbit.com/
-// @version      0.1
+// @version      0.2
 // @description  Hide closed and/or downvoted questions on Stack Exchange sites
 // @author       lars@oddbit.com
 // @homepageURL  https://github.com/larsks/sx-question-filter
@@ -43,6 +43,10 @@ var use_fadeout_effect = true;
     function hideNodes(nodes) {
         var thisNode
         for (let i=0; thisNode = nodes.snapshotItem(i); i++) {
+            let summary = thisNode.getElementsByClassName("summary")[0]
+            console.log(`hiding question "${summary.getElementsByTagName('h3')[0].textContent}"`,
+                        summary.getElementsByClassName('question-hyperlink')[0].href)
+
             if (use_fadeout_effect) {
                 fadeOutEffect(thisNode)
             } else {
