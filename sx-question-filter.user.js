@@ -1,9 +1,13 @@
 // ==UserScript==
 // @name         Hide closed and/or downvoted questions
-// @namespace    http://tampermonkey.net/
-// @version      0.1
+// @namespace    http://oddbit.com/
+// @version      0.2
 // @description  Hide closed questions on Stack Exchange sites
 // @author       lars@oddbit.com
+// @homepageURL  https://github.com/larsks/sx-question-filter
+// @updateURL    https://raw.githubusercontent.com/larsks/sx-question-filter/master/sx-question-filter.js
+// @downloadURL  https://raw.githubusercontent.com/larsks/sx-question-filter/master/sx-question-filter.js
+// @supportURL   https://github.com/larsks/sx-question-filter/issues
 
 // @match        *://serverfault.com/
 // @match        *://stackoverflow.com/
