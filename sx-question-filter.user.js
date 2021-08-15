@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hide closed and/or downvoted questions
 // @namespace    http://oddbit.com/
-// @version      0.2
+// @version      0.3
 // @description  Hide closed questions on Stack Exchange sites
 // @author       lars@oddbit.com
 // @homepageURL  https://github.com/larsks/sx-question-filter
@@ -25,6 +25,9 @@ var hide_closed_questions = true;
 
 // Set hide_downvoted_questions = false if you do not want to hide downvoted questions
 var hide_downvoted_questions = true;
+
+// Set hide_duplicate_questions = false if you do not want to hide duplicate questions
+var hide_duplicate_questions = true;
 
 // Set hide_downvoted_below to configure the threshold for hiding questions based on
 // votes. This script will hide questions with a score less than hide_downvoted_below.
@@ -68,6 +71,19 @@ var use_fadeout_effect = true;
     if (hide_closed_questions) {
         var selected = document.evaluate (
             '//div[contains(@class, "question-summary") and contains(.//a/text(), "[closed]")]',
+            document.documentElement,
+            null,
+            XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+            null
+        );
+
+        hideNodes(selected)
+    }
+
+    // hide all questions that contain "[duplicate]" in the question title
+    if (hide_duplicate_questions) {
+        var selected = document.evaluate (
+            '//div[contains(@class, "question-summary") and contains(.//a/text(), "[duplicate]")]',
             document.documentElement,
             null,
             XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
