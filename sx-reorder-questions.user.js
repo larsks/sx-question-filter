@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reorder questions
 // @namespace    http://oddbit.com/
-// @version      0.1
+// @version      0.2
 // @description  Reorder questions such that questions with 0 answers are on top
 // @author       lars@oddbit.com
 // @homepageURL  https://github.com/larsks/sx-question-filter
@@ -38,8 +38,8 @@
     );
 
     var questions = qres.singleNodeValue
-    var thisNode
-    for (let i=0; thisNode = selected.snapshotItem(i); i++) {
+    for (let i=selected.snapshotLength; i > 0; i--) {
+        let thisNode = selected.snapshotItem(i-1)
         questions.insertAdjacentElement('afterbegin', thisNode)
     }
 })();
