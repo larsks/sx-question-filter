@@ -29,6 +29,7 @@ var hide_downvoted_questions = true;
 // Set hide_duplicate_questions = false if you do not want to hide duplicate questions
 var hide_duplicate_questions = true;
 
+// NB: NO LONGER SUPPORTED DUE TO CHANGES IN STACKOVERFLOW SITE LAYOUT
 // Set hide_downvoted_below to configure the threshold for hiding questions based on
 // votes. This script will hide questions with a score less than hide_downvoted_below.
 var hide_downvoted_below = 0;
@@ -74,7 +75,7 @@ var use_fadeout_effect = true;
     // hide all questions that contain "[closed]" in the question title
     if (hide_closed_questions) {
         let selected = document.evaluate (
-            '//div[contains(@class, "question-summary") and contains(.//a/text(), "[closed]")]',
+            '//div[contains(@class, "s-post-summary") and contains(./div/div/a/text(), "[closed]")]',
             document.documentElement,
             null,
             XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
@@ -87,7 +88,7 @@ var use_fadeout_effect = true;
     // hide all questions that contain "[duplicate]" in the question title
     if (hide_duplicate_questions) {
         let selected = document.evaluate (
-            '//div[contains(@class, "question-summary") and contains(.//a/text(), "[duplicate]")]',
+            '//div[contains(@class, "s-post-summary") and contains(./div/div/a/text(), "[duplicate]")]',
             document.documentElement,
             null,
             XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
@@ -100,7 +101,7 @@ var use_fadeout_effect = true;
     // hide all questions with a score below hide_downvoted_below
     if (hide_downvoted_questions) {
         let selected = document.evaluate (
-            `//div[contains(@class, "question-summary") and .//div[@class="votes"]//span[text() < ${hide_downvoted_below}]]`,
+            `//div[contains(@class, "s-post-summary") and ./div/div[contains(@title, "votes") and starts-with(@title, "-")]]`,
             document.documentElement,
             null,
             XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
