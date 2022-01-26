@@ -45,7 +45,7 @@ var use_fadeout_effect = true;
         var thisNode
         for (let i=0; thisNode = nodes.snapshotItem(i); i++) {
             let summary = thisNode.getElementsByClassName("summary")[0]
-            console.log(`hiding question "${summary.getElementsByTagName('h3')[0].textContent}"`,
+            console.log(`hiding question "${summary.getElementsByClassName('s-post-summary--content-title')[0].getElementsByTagName("a")[0].textContent}"`,
                         summary.getElementsByClassName('question-hyperlink')[0].href)
 
             if (use_fadeout_effect) {
