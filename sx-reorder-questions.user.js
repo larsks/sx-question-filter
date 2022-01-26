@@ -21,6 +21,7 @@
 (function() {
     'use strict';
 
+    // questions are contained in <div id="question-mini-list"></div>
     var qres = document.evaluate(
         `//div[@id = "question-mini-list"]/div`,
         document.documentElement,
@@ -29,8 +30,9 @@
         null
     );
 
+    // get a list of unanswered questions
     var selected = document.evaluate (
-        `//div[contains(@class, "question-summary") and .//div[contains(@class, "unanswered")]]`,
+        `//div[contains(@class, "s-post-summary") and ./div/div[contains(@title, "0 answers")]]`,
         document.documentElement,
         null,
         XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
