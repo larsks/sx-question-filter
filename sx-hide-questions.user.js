@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hide closed and/or downvoted questions
 // @namespace    http://oddbit.com/
-// @version      0.5
+// @version      0.6
 // @description  Hide closed and/or downvoted questions on Stack Exchange sites
 // @author       lars@oddbit.com
 // @homepageURL  https://github.com/larsks/sx-question-filter

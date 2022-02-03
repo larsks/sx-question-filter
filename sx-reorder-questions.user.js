@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reorder questions
 // @namespace    http://oddbit.com/
-// @version      0.5
+// @version      0.6
 // @description  Reorder questions such that questions with 0 answers are on top
 // @author       lars@oddbit.com
 // @homepageURL  https://github.com/larsks/sx-question-filter
