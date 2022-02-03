@@ -100,7 +100,7 @@ var use_fadeout_effect = true;
     // hide all questions with a score below hide_downvoted_below
     if (hide_downvoted_questions) {
         let selected = document.evaluate (
-            `//div[contains(@class, "s-post-summary") and ./div/div[contains(@title, "votes") and starts-with(@title, "-")]]`,
+            `//div[contains(@class, "s-post-summary") and ./div/div[contains(@title, "Score") and starts-with(@title, "Score of -")]]`,
             document.documentElement,
             null,
             XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
