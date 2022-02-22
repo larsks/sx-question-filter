@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hide closed and/or downvoted questions
 // @namespace    http://oddbit.com/
-// @version      0.6
+// @version      0.7
 // @description  Hide closed and/or downvoted questions on Stack Exchange sites
 // @author       lars@oddbit.com
 // @homepageURL  https://github.com/larsks/sx-question-filter
@@ -74,7 +74,7 @@ var use_fadeout_effect = true;
     // hide all questions that contain "[closed]" in the question title
     if (hide_closed_questions) {
         let selected = document.evaluate (
-            '//div[contains(@class, "s-post-summary") and contains(./div/div/a/text(), "[closed]")]',
+            '//div[contains(@class, "s-post-summary") and contains(.//h3/a/text(), "[closed]")]',
             document.documentElement,
             null,
             XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
@@ -87,7 +87,7 @@ var use_fadeout_effect = true;
     // hide all questions that contain "[duplicate]" in the question title
     if (hide_duplicate_questions) {
         let selected = document.evaluate (
-            '//div[contains(@class, "s-post-summary") and contains(./div/div/a/text(), "[duplicate]")]',
+            '//div[contains(@class, "s-post-summary") and contains(.//h3/a/text(), "[duplicate]")]',
             document.documentElement,
             null,
             XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
